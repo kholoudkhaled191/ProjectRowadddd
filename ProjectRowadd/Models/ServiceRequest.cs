@@ -3,6 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectRowadd.Models
 {
+    public enum RequestStatus
+    {
+        Pending,
+        InProgress,
+        Completed,
+        Cancelled
+    }
+
     /// <summary>
     /// Core transactional entity capturing a customer's request for a
     /// specific service. Tracks the full lifecycle from creation through
@@ -26,7 +34,7 @@ namespace ProjectRowadd.Models
 
         public TimeSpan ScheduledTime { get; set; }
 
-        public string Status { get; set; } = "Pending";
+        public RequestStatus Status { get; set; } = RequestStatus.Pending;
 
         public string? Description { get; set; }
 
