@@ -22,7 +22,7 @@ namespace ProjectRowadd.Models
         [Range(1, 5)]
         public int Rating { get; set; }
 
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
@@ -32,18 +32,18 @@ namespace ProjectRowadd.Models
         /// The customer who wrote this review.
         /// </summary>
         [ForeignKey("CustomerId")]
-        public virtual Customer Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
 
         /// <summary>
         /// The worker being reviewed.
         /// </summary>
         [ForeignKey("WorkerId")]
-        public virtual Worker Worker { get; set; }
+        public virtual Worker? Worker { get; set; }
 
         /// <summary>
         /// The service request this review is linked to.
         /// </summary>
         [ForeignKey("RequestId")]
-        public virtual ServiceRequest ServiceRequest { get; set; }
+        public virtual ServiceRequest? ServiceRequest { get; set; }
     }
 }

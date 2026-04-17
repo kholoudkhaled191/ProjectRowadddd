@@ -20,15 +20,15 @@ namespace ProjectRowadd.Models
 
         public int CategoryId { get; set; }
 
-        public string LocationDetails { get; set; }
+        public string? LocationDetails { get; set; }
 
         public DateTime ScheduledDate { get; set; }
 
         public TimeSpan ScheduledTime { get; set; }
 
-        public RequestStatus Status { get; set; } = RequestStatus.Pending;
+        public string Status { get; set; } = "Pending";
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
@@ -40,19 +40,19 @@ namespace ProjectRowadd.Models
         /// The customer who created this request.
         /// </summary>
         [ForeignKey("CustomerId")]
-        public virtual Customer Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
 
         /// <summary>
         /// The worker assigned to this request.
         /// </summary>
         [ForeignKey("WorkerId")]
-        public virtual Worker Worker { get; set; }
+        public virtual Worker? Worker { get; set; }
 
         /// <summary>
         /// The service category for this request.
         /// </summary>
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
+        public virtual Category? Category { get; set; }
 
         /// <summary>
         /// Notifications triggered by events on this request.
@@ -69,6 +69,6 @@ namespace ProjectRowadd.Models
         /// <summary>
         /// Review submitted after this request is completed.
         /// </summary>
-        public virtual Review Review { get; set; }
+        public virtual Review? Review { get; set; }
     }
 }
